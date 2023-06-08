@@ -27,6 +27,7 @@ class Location {
   String? country;
   String? tzId;
   String? localtime;
+  
 
   Location({this.name, this.region, this.country, this.tzId, this.localtime});
 

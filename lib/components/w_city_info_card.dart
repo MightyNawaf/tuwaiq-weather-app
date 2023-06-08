@@ -9,56 +9,82 @@ class WCityInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.w400, fontSize: 16);
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.blue,
-      ),
-      height: 120,
-      padding: const EdgeInsets.all(8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
+    var color;
+    if (info.current?.condition?.icon ==
+        "//cdn.weatherapi.com/weather/64x64/night/113.png") {
+      color = Color.fromARGB(156, 51, 0, 205);
+    } else if (info.current?.condition?.icon ==
+        "//cdn.weatherapi.com/weather/64x64/day/113.png") {
+      color = Color.fromARGB(199, 0, 206, 243);
+    } else if (info.current?.condition?.icon ==
+        "//cdn.weatherapi.com/weather/64x64/day/143.png") {
+      color = Color.fromARGB(143, 172, 172, 172);
+    }
+
+    final textStyle = TextStyle(
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.w400,
+        fontSize: 16);
+    final imgUrl = info.current?.condition?.icon.toString();
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: color,
+          ),
+          height: 140,
+          padding: EdgeInsets.all(8),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '${info.location?.name}',
-                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${info.location?.name}',
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        DateTime.parse(
+                                '${info.location?.localtime ?? "12:00"}:00')
+                            .getTimeFrom,
+                        style: textStyle,
+                      ),
+                    ],
                   ),
                   Text(
-                    DateTime.parse('${info.location?.localtime}:00').getTimeFrom,
+                    '${info.current?.condition?.text}',
                     style: textStyle,
-                  ),
+                  )
                 ],
               ),
-              Text(
-                '${info.current?.condition?.text}',
-                style: textStyle,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    '${info.current?.tempC}°',
+                    style: TextStyle(fontSize: 40),
+                  ),
+                  Image(
+                      width: 70,
+                      height: 70,
+                      image: NetworkImage("http:${imgUrl}")),
+                ],
               )
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                '${info.current?.tempC}°',
-                style: const TextStyle(fontSize: 40),
-              ),
-              Text(
-                'Feels like: ${info.current?.feelslikeC}',
-                style: textStyle.copyWith(color: Colors.white),
-              ),
-            ],
-          )
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 20,
+        )
+      ],
     );
   }
 }

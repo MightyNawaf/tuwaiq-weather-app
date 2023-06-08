@@ -23,8 +23,8 @@ class _WTextFieldState extends State<WTextField> {
       controller: textEditingController,
       cursorColor: Colors.grey[900],
       decoration: InputDecoration(
-        focusColor: Colors.grey[900],
-        prefixIconColor: Colors.grey[900],
+        focusColor: const Color.fromARGB(255, 0, 0, 0),
+        prefixIconColor: Color.fromARGB(255, 0, 0, 0),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(8),
@@ -33,7 +33,7 @@ class _WTextFieldState extends State<WTextField> {
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(8),
         ),
-        fillColor: Colors.grey,
+        fillColor: Color.fromARGB(174, 160, 160, 160),
         prefixIcon: const Icon(Icons.search),
         filled: true,
       ),
