@@ -53,7 +53,7 @@ class CityInfoCard extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         ConditionCard(city: info)
       ],
     );
