@@ -1,8 +1,10 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:flutter/material.dart';
-import 'package:weather_api/components/w_city_info_card.dart';
-import 'package:weather_api/components/w_text_field.dart';
-import 'package:weather_api/data.dart';
-import 'package:weather_api/services/api.dart';
+import '../components/city_info_card.dart';
+import '../components/search.dart';
+import '../data.dart';
+import '../services/api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,15 +25,15 @@ class HomeScreenState extends State<HomeScreen> {
             children: [
               const Text(
                 'Weather',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40, fontFamily: 'Tajawal'),
               ),
               const SizedBox(height: 8),
-              const WTextField(),
+              const Search(),
               const SizedBox(height: 24),
               ListView(
                 shrinkWrap: true,
                 children: [
-                  for (final city in Data.favoriteCities) WCityInfoCard(info: city),
+                  for (final city in Data.favoriteCities) CityInfoCard(info: city),
                 ],
               )
             ],
