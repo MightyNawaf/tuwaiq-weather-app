@@ -9,12 +9,21 @@ class WCityInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.w400, fontSize: 16);
+    // var currentDate = "";
+    //
+    // var parsedDate = DateTime.parse(info.location!.localtime!.substring(0, 10));
+    //
+    // // var newDate = DateFormat('MMMMEEEEd').format(parsedDate);
+    // var newDate = DateFormat.jm().format(parsedDate);
+    // currentDate = newDate;
+
+    final textStyle = TextStyle(color: Colors.white70, fontWeight: FontWeight.w400, fontSize: 16);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.blue,
       ),
+      margin: EdgeInsetsDirectional.all(4),
       height: 120,
       padding: const EdgeInsets.all(8),
       child: Row(
@@ -32,7 +41,7 @@ class WCityInfoCard extends StatelessWidget {
                     style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    DateTime.parse('${info.location?.localtime}:00').getTimeFrom,
+                    DateTime.parse('${info.location?.localtime}').getTimeFrom,
                     style: textStyle,
                   ),
                 ],
@@ -56,7 +65,7 @@ class WCityInfoCard extends StatelessWidget {
                 style: textStyle.copyWith(color: Colors.white),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -64,5 +73,5 @@ class WCityInfoCard extends StatelessWidget {
 }
 
 extension WDateTimeToString on DateTime {
-  String get getTimeFrom => DateFormat('kk:mm').format(this);
+  String get getTimeFrom => DateFormat.jm().format(this).toString(); //5:08 PM
 }
