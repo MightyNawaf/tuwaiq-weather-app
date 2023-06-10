@@ -50,14 +50,14 @@ class Location {
 }
 
 class Current {
-  double? tempC;
-  double? tempF;
+  num? tempC;
+  num? tempF;
   int? isDay;
   Condition? condition;
   int? humidity;
   int? cloud;
-  double? feelslikeC;
-  double? feelslikeF;
+  num? feelslikeC;
+  num? feelslikeF;
 
   Current(
       {this.tempC,
