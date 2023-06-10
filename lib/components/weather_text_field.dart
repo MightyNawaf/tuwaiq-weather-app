@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:weather_api/components/selecting_sheet.dart';
 import 'package:weather_api/screens/home_screen.dart';
 
-class WTextField extends StatefulWidget {
-  const WTextField({
+class WeatherTextField extends StatefulWidget {
+  const WeatherTextField({
     super.key,
   });
 
   @override
-  State<WTextField> createState() => _WTextFieldState();
+  State<WeatherTextField> createState() => _WeatherTextField();
 }
 
-class _WTextFieldState extends State<WTextField> {
+class _WeatherTextField extends State<WeatherTextField> {
   TextEditingController textEditingController = TextEditingController();
   @override
   void dispose() {
