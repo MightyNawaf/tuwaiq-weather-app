@@ -27,6 +27,7 @@ class Location {
   String? country;
   String? tzId;
   String? localtime;
+  // DateTime ?localtime;
 
   Location({this.name, this.region, this.country, this.tzId, this.localtime});
 
@@ -35,6 +36,7 @@ class Location {
     region = json['region'];
     country = json['country'];
     tzId = json['tz_id'];
+    // DateTime.parse(json["localtime"]);
     localtime = json['localtime'];
   }
 
