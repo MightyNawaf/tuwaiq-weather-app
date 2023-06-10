@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:weather_api/models/city_info.dart';
 
 class ApiService {
-  static const String apiBaseUrl = 'https://api.weatherapi.com/v1/current.json?key=36bf494189584b349f584611230806&q=';
+  static const String apiBaseUrl = 'https://api.weatherapi.com/v1/current.json?key=61f1948d02f24d269d5190103231006&q=';
   Future<CityInfo> getCityInfo(String cityName) async {
     final uri = Uri.parse(apiBaseUrl + cityName);
     final request = await http.get(uri);
