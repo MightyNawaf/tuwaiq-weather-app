@@ -31,7 +31,8 @@ class HomeScreenState extends State<HomeScreen> {
               ListView(
                 shrinkWrap: true,
                 children: [
-                  for (final city in Data.favoriteCities) WCityInfoCard(info: city),
+                  for (final city in Data.favoriteCities)
+                    WCityInfoCard(info: city),
                 ],
               )
             ],
@@ -52,7 +53,7 @@ class SelectingSheet extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.9,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade200,
         body: FutureBuilder(
             future: ApiService().getCityInfo(keyword),
             builder: (context, snapshot) {
@@ -66,9 +67,22 @@ class SelectingSheet extends StatelessWidget {
                       onPressed: () {
                         Data.favoriteCities.add(snapshot.data!);
                         Navigator.pop(context);
-                        context.findRootAncestorStateOfType<HomeScreenState>()?.setState(() {});
+                        context
+                            .findRootAncestorStateOfType<HomeScreenState>()
+                            ?.setState(() {});
                       },
-                      child: const Text('Add'),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'Add city to favourite',
+                              style: TextStyle(fontSize: 24),
+                            ),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 );
