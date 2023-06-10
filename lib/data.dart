@@ -1,6 +1,6 @@
-import 'package:weather_api/models/city_info.dart';
+import 'package:weather_api/models/city_model.dart';
 
 class Data {
   static String cityName = 'London';
-  static List<CityInfo> favoriteCities = [];
+  static List<CityModel> favoriteCities = [];
 }
