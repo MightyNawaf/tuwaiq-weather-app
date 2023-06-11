@@ -33,7 +33,7 @@ class _WTextFieldState extends State<WTextField> {
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(8),
         ),
-        fillColor: Colors.grey,
+        fillColor: Color.fromARGB(81, 218, 220, 251),
         prefixIcon: const Icon(Icons.search),
         filled: true,
       ),
