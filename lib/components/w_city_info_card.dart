@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glass/glass.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_api/models/city_info.dart';
 
@@ -9,14 +10,11 @@ class WCityInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.w400, fontSize: 16);
+     final textStyle = TextStyle(
+        color: Colors.blueGrey.shade200, fontWeight: FontWeight.w400, fontSize: 16);
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.blue,
-      ),
-      height: 120,
-      padding: const EdgeInsets.all(8),
+      height: 148,
+      padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -29,17 +27,30 @@ class WCityInfoCard extends StatelessWidget {
                 children: [
                   Text(
                     '${info.location?.name}',
-                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 28, fontWeight: FontWeight.w600),
                   ),
-                  Text(
-                    DateTime.parse('${info.location?.localtime}:00').getTimeFrom,
-                    style: textStyle,
-                  ),
+                  Text('${info.location?.country}'),
                 ],
               ),
               Text(
-                '${info.current?.condition?.text}',
+                '${info.location?.localtime?.substring(info.location!.localtime!.indexOf(' '), info.location!.localtime!.indexOf(':'))}:${info.location?.localtime?.substring(info.location!.localtime!.indexOf(':') + 1, info.location?.localtime?.length)}',
                 style: textStyle,
+              ),
+              Row(
+                children: [
+                  Text(
+                    '${info.current?.condition?.text}  ',
+                    style: textStyle,
+                  ),
+                  SizedBox(
+                    height: 32,
+                    width: 32,
+                    child: ImageIcon((AssetImage(
+                    'assets/icons/${info.current?.condition?.icon?.substring(info.current!.condition!.icon!.indexOf('64x64'), info.current?.condition?.icon?.length)}',
+                    )),),
+                  ),
+                ],
               )
             ],
           ),
@@ -59,7 +70,9 @@ class WCityInfoCard extends StatelessWidget {
           )
         ],
       ),
-    );
+    ).asGlass(
+        clipBorderRadius: BorderRadius.circular(18),
+        tintColor: Colors.teal.shade100);
   }
 }
 

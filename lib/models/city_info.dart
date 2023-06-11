@@ -2,11 +2,13 @@ class CityInfo {
   Location? location;
   Current? current;
 
-  CityInfo({this.location, this.current});
+  CityInfo(CityInfo cityInfo, {this.location, this.current});
 
   CityInfo.fromJson(Map<String, dynamic> json) {
-    location = json['location'] != null ? Location.fromJson(json['location']) : null;
-    current = json['current'] != null ? Current.fromJson(json['current']) : null;
+    location =
+        json['location'] != null ? Location.fromJson(json['location']) : null;
+    current =
+        json['current'] != null ? Current.fromJson(json['current']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -25,16 +27,22 @@ class Location {
   String? name;
   String? region;
   String? country;
+  double? lat;
+  double? lon;
   String? tzId;
+  int? epoch;
   String? localtime;
 
-  Location({this.name, this.region, this.country, this.tzId, this.localtime});
+  Location({this.name, this.region, this.country,this.lat,this.lon, this.tzId, this.localtime});
 
   Location.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     region = json['region'];
     country = json['country'];
+    lat = json['lat'];
+    lon = json['lon'];
     tzId = json['tz_id'];
+    epoch = json['localtime_epoch'];
     localtime = json['localtime'];
   }
 
@@ -43,7 +51,10 @@ class Location {
     data['name'] = name;
     data['region'] = region;
     data['country'] = country;
+    data['lat'] = lat;
+    data['lon'] = lon;
     data['tz_id'] = tzId;
+    data['localtime_epoch'] = epoch;
     data['localtime'] = localtime;
     return data;
   }
@@ -73,7 +84,9 @@ class Current {
     tempC = json['temp_c'];
     tempF = json['temp_f'];
     isDay = json['is_day'];
-    condition = json['condition'] != null ? Condition.fromJson(json['condition']) : null;
+    condition = json['condition'] != null
+        ? Condition.fromJson(json['condition'])
+        : null;
     humidity = json['humidity'];
     cloud = json['cloud'];
     feelslikeC = json['feelslike_c'];
