@@ -2,7 +2,7 @@ class CityInfo {
   Location? location;
   Current? current;
 
-  CityInfo({this.location, this.current});
+  CityInfo(CityInfo? data, {this.location, this.current});
 
   CityInfo.fromJson(Map<String, dynamic> json) {
     location = json['location'] != null ? Location.fromJson(json['location']) : null;

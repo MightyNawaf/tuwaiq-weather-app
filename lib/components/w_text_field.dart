@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_api/components/selecting_sheet.dart';
 import 'package:weather_api/screens/home_screen.dart';
 
 class WTextField extends StatefulWidget {
@@ -33,10 +34,15 @@ class _WTextFieldState extends State<WTextField> {
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(8),
         ),
-        fillColor: Colors.grey,
-        prefixIcon: const Icon(Icons.search),
+        hoverColor: Color.fromARGB(255, 180, 196, 255),
+        fillColor: const Color.fromARGB(500, 82, 24, 255),
+        prefixIcon: const Icon(
+          Icons.search,
+          color: Colors.white,
+        ),
         filled: true,
       ),
+      //--------
       onSubmitted: (text) {
         showBottomSheet(
           context: context,
