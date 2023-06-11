@@ -10,10 +10,10 @@ class WCityInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(
-        color: Colors.white70, fontWeight: FontWeight.w400, fontSize: 16);
+     final textStyle = TextStyle(
+        color: Colors.blueGrey.shade200, fontWeight: FontWeight.w400, fontSize: 16);
     return Container(
-      height: 128,
+      height: 148,
       padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,10 +43,13 @@ class WCityInfoCard extends StatelessWidget {
                     '${info.current?.condition?.text}  ',
                     style: textStyle,
                   ),
-                  // ImageIcon((AssetImage(
-                  // 'assets/icons/${info.current?.condition?.icon?.substring(info.current!.condition!.icon!.indexOf('64x64'), info.current?.condition?.icon?.length)}',
-                  // )
-                  // )),
+                  SizedBox(
+                    height: 32,
+                    width: 32,
+                    child: ImageIcon((AssetImage(
+                    'assets/icons/${info.current?.condition?.icon?.substring(info.current!.condition!.icon!.indexOf('64x64'), info.current?.condition?.icon?.length)}',
+                    )),),
+                  ),
                 ],
               )
             ],

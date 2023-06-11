@@ -34,17 +34,19 @@ class HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 8),
             const WTextField(),
             const SizedBox(height: 8),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                for (final city in Data.favoriteCities)
-                  Column(children: [
-                    WCityInfoCard(info: city),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                  ])
-              ],
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  for (final city in Data.favoriteCities)
+                    Column(children: [
+                      WCityInfoCard(info: city),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                    ])
+                ],
+              ),
             ),
           ],
         ),

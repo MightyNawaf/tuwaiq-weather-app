@@ -24,3 +24,5 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/icons/64x64/day/
+    - assets/icons/64x64/night/
