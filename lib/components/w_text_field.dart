@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_api/screens/home_screen.dart';
+import 'package:glass/glass.dart';
+import 'package:weather_api/screens/SelectingSheet.dart';
 
 class WTextField extends StatefulWidget {
   const WTextField({
@@ -21,19 +22,15 @@ class _WTextFieldState extends State<WTextField> {
   Widget build(BuildContext context) {
     return TextField(
       controller: textEditingController,
-      cursorColor: Colors.grey[900],
+      cursorColor: Colors.blueGrey[900],
       decoration: InputDecoration(
-        focusColor: Colors.grey[900],
-        prefixIconColor: Colors.grey[900],
-        enabledBorder: OutlineInputBorder(
+        prefixIconColor: Colors.blueGrey[900],
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
         ),
-        fillColor: Colors.grey,
         prefixIcon: const Icon(Icons.search),
         filled: true,
       ),
@@ -45,6 +42,8 @@ class _WTextFieldState extends State<WTextField> {
           },
         );
       },
-    );
+    ).asGlass(
+        clipBorderRadius: BorderRadius.circular(18),
+        tintColor: Colors.blueGrey.shade900);
   }
 }
