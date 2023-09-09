@@ -1,3 +1,3 @@
-# weather_api
+# weather app
 
-A new Flutter project.
+just simple weather app
